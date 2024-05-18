@@ -129,7 +129,7 @@ export async function makeGeminiRequest(
     // Extract and process the response
     const response = result.response;
     var content = (await response).text();
-    content = content.replaceAll(" ","")
+    //content = content.replaceAll(" ","")
 
     if(is_countinue){
       const msg = [{ inlineData:images[images.length-1],}, { inlineData: audio_data,  } ];

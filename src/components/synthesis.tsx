@@ -5,13 +5,14 @@
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 //import * as readline from "readline";
 
-export async function synthesis (text: string) {
+export async function synthesis (  text: string) {
 
     // now create the audio-config pointing to the output file.
     // You can also use audio output stream to initialize the audio config, see the docs for details.
     //var audioConfig = sdk.AudioConfig.fromAudioFileOutput(filename);
-    var subscriptionKey = import.meta.env.SPEECH_KEY ;
-    var serviceRegion = import.meta.env.SPEECH_REGION  ;
+    var subscriptionKey = "your azure subscriptionKey" ;
+    var serviceRegion =  "your serviceRegion e.g eastasia"  ;
+    //console.log("import.meta.env.SPEECH_KEY",import.meta.env.SPEECH_KEY)
     var speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
 
     // setting the synthesis language, voice name, and output audio format.

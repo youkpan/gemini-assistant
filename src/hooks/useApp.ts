@@ -237,7 +237,7 @@ export async function switchCamera() {
     // 获取所有视频输入设备
     const devices = await navigator.mediaDevices.enumerateDevices();
     const videoDevices = devices.filter(device => device.kind === 'videoinput');
-
+    console.log("videoDevices",videoDevices)
     if (videoDevices.length === 0) {
         throw new Error('没有找到摄像头设备');
     }
@@ -248,8 +248,9 @@ export async function switchCamera() {
     if (currentIndex==-1){
       currentIndex = videoDevices.findIndex(device => device.label.toLowerCase().indexOf("back")!=-1);
     }
-
-    if(currentIndex + 1 < videoDevices.length){
+    if (currentIndex==-1){
+      currentIndex = 0
+    }else if(currentIndex + 1 < videoDevices.length){
       currentIndex +=1;
     } else{
       currentIndex = 0
@@ -259,6 +260,8 @@ export async function switchCamera() {
 
     // 更新当前设备ID
     currentDeviceId = newDeviceId;
+    console.log("currentDeviceId",currentDeviceId)
+
     var mediasetting = {
       audio: {
           deviceId: "default",
@@ -267,6 +270,10 @@ export async function switchCamera() {
           channelCount: 1
       },video:{ deviceId: { exact: currentDeviceId } }
     }
+    if (currentDeviceId == ""){
+      mediasetting.video = true
+    }
+
     // 请求视频流
     const stream = await navigator.mediaDevices.getUserMedia(mediasetting);
     //videoRef = useRef<HTMLVideoElement | null>(null);

@@ -7,6 +7,8 @@ Explore the remarkable capabilities of Gemini, an open-source application powere
 
 You can use your camera and screen capture (chrome browser) ! .
 
+If you like this repo, Give me a star ⭐ ~ 
+
 ## 🚀 Quick Start
 
 **Demo:** [Gemini Assistant Demo](https://v.stylee.top:3000/)
@@ -30,12 +32,13 @@ npm install
 Addtional:
 
 VITE_GEMINI_MODEL="gemini-1.5-flash-latest"
-#"gemini-pro-vision" or "gemini-1.5-flash"
+#"gemini-1.5-pro" or "gemini-1.5-flash"
 
-SPEECH_KEY="your azure SPEECH_KEY"
-
-SPEECH_REGION="your azure SPEECH_REGION,e.g eastasia>"
-
+### change your TTS key(azure ,in file [src/components/synthesis.tsx](src/components/synthesis.tsx) line 13):
+```javascript
+var subscriptionKey = "your azure subscriptionKey" ;
+var serviceRegion =  "your serviceRegion e.g eastasia"  ;
+```
 #### step:4 Run locally
 
 ```bash
