@@ -11,7 +11,7 @@ If you like this repo, Give me a star ⭐ ~
 
 ## 🚀 Quick Start
 
-**Demo:** [Gemini Assistant Demo](https://v.stylee.top:3000/)
+**Demo:** [Gemini Assistant Demo](https://v.stylee.top:3000/) (Need Chrome/Edge Browser)
 
 #### step: 1 Clone the repository
 
