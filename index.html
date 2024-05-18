@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini</title>
+    <meta
+      name="description"
+      content="Gemini is an open-source application powered by the Google Gemini Vision API. Identify and learn about objects through a simple and interactive camera experience."
+    />
+    <meta
+      name="keywords"
+      content="Gemini, Google Gemini, Gemini Vision, Image Recognition, Multimodal AI, Open Source, Computer Vision, srikanth nani, iamsrikathnani"
+    />
+    <meta property="og:title" content="Google Gemini" />
+    <meta
+      property="og:description"
+      content="Identify and learn about objects through a simple and interactive camera experience with Gemini, powered by the Google Gemini Vision API."
+    />
+  </head>
+  <body>
+    <div style="color: black;background-color: white;font-size: 1.3em;width: 100%;text-align: center;font-weight: bolder;;">
+    Gemini-1.5-pro Multimodal visual Assistant
+    <br/>
+  </div>
+    <!--button id="switchCameraButton" xonclick="switchCamera()">切换摄像头</button-->
+    <div id="root"></div>
+
+    <div id="google_translate_element"></div>
+    
+    <!--script src="/nodebug.js"></script-->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      (function () {
+        var lastEvent = null;
+        ['click', 'touchstart', 'mousedown', 'mousemove', 'keydown', 'focus'].forEach(function (event) {
+            document.addEventListener(event, function (event) {
+                lastEvent = event;
+            }, {
+                capture: true,
+                passive: true
+            });
+        });
+        window.addEventListener('message', function (event) {
+            if (event.data === 'console.log') {
+                debugger;
+            }
+        }, true);
+        window.addEventListener('keydown', function (event) {
+            if (event.keyCode === 123) { // F12 key code
+                event.preventDefault();
+            } else if ((event.metaKey || event.ctrlKey) && (event.shiftKey && event.keyCode === 73)) { // Cmd/Ctrl+Shift+I key code
+                event.preventDefault();
+            } else if (lastEvent && (lastEvent.type === 'keydown' || lastEvent.type === 'mousedown')) {
+                if ((lastEvent.metaKey || lastEvent.ctrlKey) && lastEvent.shiftKey && lastEvent.keyCode === 73) { // Cmd/Ctrl+Shift+I key code
+                    lastEvent.preventDefault();
+                }
+            }
+        }, true);
+    })();
+
+    function no_debug(){
+
+    }
+    </script>
+
+    <script>
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang.indexOf("CN") == -1) {
+      appendJQCDN("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit")
+    }
+
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?07d241fbcc8c2fbd7eec5a5086655539";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+    </script>
+  </body>
+</html>
